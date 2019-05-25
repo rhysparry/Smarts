@@ -1,7 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>Smarts.Core</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Rhys Parry</Authors>
+    <Company>Rhys Parry</Company>
+    <PackageDescription>Smarts is a collection of classes to help perform everyday tasks in .NET code</PackageDescription>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Copyright>Copyright 2019 Rhys Parry</Copyright>
+    <RepositoryUrl>https://github.com/rhysparry/Smarts</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
