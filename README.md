@@ -143,5 +143,5 @@ With a factory receiving an integer offset adjusted by a fixed value:
 var list = new List<int> {1, 2, 3};
 list.PadRight(5, i => i + 1, 3);
 
-// list is not [1, 2, 3, 4, 5]
+// list is now [1, 2, 3, 4, 5]
 ```
