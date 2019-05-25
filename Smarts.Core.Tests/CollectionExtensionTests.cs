@@ -23,5 +23,95 @@ namespace Smarts.Core.Tests
             values.AddRange(Enumerable.Range(1, 10));
             Assert.That(values, Has.Exactly(10).Items.InRange(1, 10));
         }
+
+        [Test]
+        public void PadRightThrowsWhenNegativeLength()
+        {
+            var list = new List<int> {1, 2, 3};
+            Assert.That(() => list.PadRight(-1, 4), Throws.InstanceOf<ArgumentOutOfRangeException>());
+        }
+
+        [Test]
+        public void PadRightPadsProperly()
+        {
+            var list = new List<int> {1, 2, 3};
+            list.PadRight(10, 2);
+            Assert.That(list.Count, Is.EqualTo(10));
+            Assert.That(list.Sum(), Is.EqualTo(20));
+            Assert.That(list.Skip(3).Sum(), Is.EqualTo(14));
+        }
+
+        [Test]
+        public void PadRightLengthAlreadyPaddedLength()
+        {
+            var list = new List<int> {1, 2, 3};
+            list.PadRight(3, 9);
+            Assert.That(list.Count, Is.EqualTo(3));
+            Assert.That(list.Sum(), Is.EqualTo(6));
+        }
+
+        [Test]
+        public void PadRightLengthGreaterThanPaddedLength()
+        {
+            var list = new List<int> {1, 2, 3, 4, 5};
+            list.PadRight(3, 23);
+            Assert.That(list.Count, Is.EqualTo(5));
+            Assert.That(list.Sum(), Is.EqualTo(15));
+        }
+
+        [Test]
+        public void PadRightFactoryFunctionThrowsWhenNegativeLength()
+        {
+            var list = new List<int> {1, 2, 3};
+            Assert.That(() => list.PadRight(-1, () => 4), Throws.InstanceOf<ArgumentOutOfRangeException>());
+        }
+
+        [Test]
+        public void PadRightFactoryFunctionPadsProperly()
+        {
+            var list = new List<int> {1, 2, 3};
+            list.PadRight(10, () => 2);
+            Assert.That(list.Count, Is.EqualTo(10));
+            Assert.That(list.Sum(), Is.EqualTo(20));
+            Assert.That(list.Skip(3).Sum(), Is.EqualTo(14));
+        }
+
+        [Test]
+        public void PadRightFactoryFunctionLengthAlreadyPaddedLength()
+        {
+            var list = new List<int> {1, 2, 3};
+            list.PadRight(3, () => 9);
+            Assert.That(list.Count, Is.EqualTo(3));
+            Assert.That(list.Sum(), Is.EqualTo(6));
+        }
+
+        [Test]
+        public void PadRightFactoryFunctionLengthGreaterThanPaddedLength()
+        {
+            var list = new List<int> {1, 2, 3, 4, 5};
+            list.PadRight(3, () => 23);
+            Assert.That(list.Count, Is.EqualTo(5));
+            Assert.That(list.Sum(), Is.EqualTo(15));
+        }
+
+        [Test]
+        public void PadRightFactoryWithDefaultOffset()
+        {
+            var list = new List<int> {1, 2, 3};
+            list.PadRight(5, i => i + 1);
+            Assert.That(list.Count, Is.EqualTo(5));
+            Assert.That(list.Sum(), Is.EqualTo(9));
+            Assert.That(list.Skip(3).Sum(), Is.EqualTo(3));
+        }
+
+        [Test]
+        public void PadRightFactoryWithCustomOffset()
+        {
+            var list = new List<int> {1, 2, 3};
+            list.PadRight(5, i => i + 1, 10);
+            Assert.That(list.Count, Is.EqualTo(5));
+            Assert.That(list.Sum(), Is.EqualTo(29));
+            Assert.That(list.Skip(3).Sum(), Is.EqualTo(23));
+        }
     }
 }
