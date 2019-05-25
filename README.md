@@ -43,3 +43,21 @@ using (new Disposable(() => Console.ForegroundColor = currentFg))
     Console.ForegroundColor = ConsoleColor.Black;
 }
 ```
+
+## Semaphore Extensions
+
+Easily manage acquiring and releasing a semaphore with the `AcquireAsync`
+extension method on `SemaphoreSlim`.
+
+Example:
+
+```
+var semaphore = new SemaphoreSlim(1);
+
+using (await semaphore.AcquireAsync())
+{
+    // Do things protected by the semaphore
+}
+
+// The semaphore will be automatically released.
+```
