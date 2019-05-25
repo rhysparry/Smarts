@@ -67,3 +67,24 @@ using (await semaphore.AcquireAsync())
 
 // The semaphore will be automatically released.
 ```
+
+## Console Extensions
+
+Adjust colours on the console with automatic resetting to previous values with
+the `IDisposable` pattern. `Console.ResetColor()` sets everything back to the
+default values, making it great for the end of your application, but not ideal
+for stacking possible changes. This helper makes it easy to keep track of the
+previous value, even when it isn't the default.
+
+Example:
+
+```csharp
+using (ConsoleColor.Red.AsForeground())
+{
+    Console.Write("Error ");
+}
+Console.Write("Something went wrong");
+```
+
+This allows nesting of colour changes, so you can keep things isolated to your
+functions.
