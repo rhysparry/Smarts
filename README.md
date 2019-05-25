@@ -4,6 +4,12 @@
 
 Smarts is a collection of classes to help perform common tasks in .NET code.
 
+# Build Status
+## master
+[![Build Status](https://dev.azure.com/rhysparry/Smarts/_apis/build/status/rhysparry.Smarts?branchName=master)](https://dev.azure.com/rhysparry/Smarts/_build/latest?definitionId=1&branchName=master)
+## develop
+[![Build Status](https://dev.azure.com/rhysparry/Smarts/_apis/build/status/rhysparry.Smarts?branchName=develop)](https://dev.azure.com/rhysparry/Smarts/_build/latest?definitionId=1&branchName=develop)
+
 ## `Disposable`
 
 You can use the `Smarts.Core.Disposable` class to help work with `IDisposable`
