@@ -2,7 +2,7 @@
 
 ## What is Smarts?
 
-Smarts is a collection of classes to help perform common tasks in .NET code.
+Smarts is a collection of classes to help perform everyday tasks in .NET code.
 
 # Build Status
 ## master
