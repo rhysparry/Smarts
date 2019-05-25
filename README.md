@@ -88,3 +88,11 @@ Console.Write("Something went wrong");
 
 This allows nesting of colour changes, so you can keep things isolated to your
 functions.
+
+## Collection Extensions
+
+### `AddRange()`
+
+Adding multiple values to a collection is pretty common, but not all the
+collection types have an `AddRange()` method like `List<T>`. This gap is filled
+with an `AddRange()` extension method on `ICollection<T>`.
