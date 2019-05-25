@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28917.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smarts.Core", "Smarts.Core\Smarts.Core.csproj", "{09656F93-F25C-4239-A319-60E1AAFDDABC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smarts.Core.Tests", "Smarts.Core.Tests\Smarts.Core.Tests.csproj", "{12A0F424-BCCE-4010-BD05-C211C04AF6FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09656F93-F25C-4239-A319-60E1AAFDDABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09656F93-F25C-4239-A319-60E1AAFDDABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09656F93-F25C-4239-A319-60E1AAFDDABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09656F93-F25C-4239-A319-60E1AAFDDABC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12A0F424-BCCE-4010-BD05-C211C04AF6FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A0F424-BCCE-4010-BD05-C211C04AF6FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A0F424-BCCE-4010-BD05-C211C04AF6FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12A0F424-BCCE-4010-BD05-C211C04AF6FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BA51345B-484B-4B05-95A4-2CB3CB31A3CC}
+	EndGlobalSection
+EndGlobal
