@@ -15,7 +15,7 @@ instances.
 
 Example:
 
-```
+```csharp
 using (var disposer = new Disposable())
 {
     var stream = disposer.Add(new Stream());
@@ -36,7 +36,7 @@ could normally be done with a `try`/`finally` block, but nesting can get
 cumbersome. It also makes it easier to return an `IDisposable` which will do
 this cleanup.
 
-```
+```csharp
 var currentFg = Console.ForegroundColor;
 using (new Disposable(() => Console.ForegroundColor = currentFg))
 {
@@ -51,7 +51,7 @@ extension method on `SemaphoreSlim`.
 
 Example:
 
-```
+```csharp
 var semaphore = new SemaphoreSlim(1);
 
 using (await semaphore.AcquireAsync())
