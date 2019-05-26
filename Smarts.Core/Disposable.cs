@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Smarts.Core
 {
-    public class Disposable : IDisposable
+    public sealed class Disposable : IDisposable
     {
         private readonly Stack<IDisposable> _toDispose;
         private bool _disposed;
