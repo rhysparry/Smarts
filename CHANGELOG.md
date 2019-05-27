@@ -1,3 +1,6 @@
+# 1.1.0 (Proposed)
+- 🆕 `Functions.Identity` function passing through a value unchanged.
+
 # 1.0.0
 - 🆕 `AsForeground` and `AsBackground` extension methods to change console
   colours with the `IDisposable` pattern resetting the previous colour.

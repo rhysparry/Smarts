@@ -5,5 +5,10 @@
         public static void NoOp()
         {
         }
+
+        public static T Identity<T>(T value)
+        {
+            return value;
+        }
     }
 }
