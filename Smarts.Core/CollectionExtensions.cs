@@ -50,5 +50,48 @@ namespace Smarts.Core
 
             list.AddRange(Enumerable.Range(offset, padAmount).Select(paddingFactory));
         }
+
+        public static void PadLeft<T>(this IList<T> list, int paddedLength, T paddingValue)
+        {
+            if (paddedLength < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(paddedLength), "The padded length must be positive.");
+            }
+
+            var padAmount = paddedLength - list.Count;
+            if (padAmount < 1)
+            {
+                return;
+            }
+
+            for (var i = 0; i < padAmount; i++)
+            {
+                list.Insert(0, paddingValue);
+            }
+        }
+
+        public static void PadLeft<T>(this IList<T> list, int paddedLength, Func<T> paddingFactory)
+        {
+            list.PadLeft(paddedLength, _ => paddingFactory());
+        }
+
+        public static void PadLeft<T>(this IList<T> list, int paddedLength, Func<int, T> paddingFactory, int offset = 0)
+        {
+            if (paddedLength < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(paddedLength), "The padded length must be positive.");
+            }
+
+            var padAmount = paddedLength - list.Count;
+            if (padAmount < 1)
+            {
+                return;
+            }
+
+            for (var i = 0; i < padAmount; i++)
+            {
+                list.Insert(i, paddingFactory(i + offset));
+            }
+        }
     }
 }
