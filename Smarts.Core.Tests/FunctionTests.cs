@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Linq;
 using NUnit.Framework;
 
 namespace Smarts.Core.Tests
@@ -16,7 +14,7 @@ namespace Smarts.Core.Tests
         [Test]
         public void IdentityOfAStruct()
         {
-            var num = 42;
+            const int num = 42;
             var identity = Functions.Identity(num);
             Assert.That(identity, Is.EqualTo(num));
         }
