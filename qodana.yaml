@@ -7,9 +7,17 @@ version: "1.0"
 #Specify IDE code to run analysis without container (Applied in CI/CD pipeline)
 ide: QDNET
 
+linter: jetbrains/qodana-cdnet:latest
+dotnet:
+  solution: Smarts.sln
+
 #Specify inspection profile for code analysis
 profile:
   name: qodana.starter
+
+with:
+  pr-mode: false
+  args: --save-report=false
 
 #Enable inspections
 #include:
