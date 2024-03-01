@@ -15,10 +15,6 @@ dotnet:
 profile:
   name: qodana.starter
 
-with:
-  pr-mode: false
-  args: --save-report=false
-
 #Enable inspections
 #include:
 #  - name: <SomeEnabledInspectionId>
