@@ -92,4 +92,14 @@ public class DisposableTests
         ((IDisposable) d).Dispose();
         Assert.Throws<ObjectDisposedException>(() => d.Add(Functions.NoOp));
     }
+
+    [Fact]
+    public void AddingToADisposableReturnsTheOriginalObject()
+    {
+        var outer = new Disposable();
+        var inner = new Disposable();
+        var result = outer.Add(inner);
+        Assert.NotNull(result);
+        Assert.Same(inner, result);
+    }
 }
