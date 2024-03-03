@@ -1,20 +1,18 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using NUnit.Framework;
 
-namespace Smarts.Core.Tests
+namespace Smarts.Core.Tests;
+
+public class SemaphoreExtensionTests
 {
-    public class SemaphoreExtensionTests
+    [Fact]
+    public async Task AutomaticallyReleaseASemaphore()
     {
-        [Test]
-        public async Task AutomaticallyReleaseASemaphore()
+        var semaphore = new SemaphoreSlim(1);
+        using (await semaphore.AcquireAsync())
         {
-            var semaphore = new SemaphoreSlim(1);
-            using (await semaphore.AcquireAsync())
-            {
-                Assert.That(semaphore.CurrentCount, Is.EqualTo(0));
-            }
-            Assert.That(semaphore.CurrentCount, Is.EqualTo(1));
+            Assert.Equal(0, semaphore.CurrentCount);
         }
+        Assert.Equal(1, semaphore.CurrentCount);
     }
 }

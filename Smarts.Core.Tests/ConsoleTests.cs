@@ -1,42 +1,40 @@
 ﻿using System;
-using NUnit.Framework;
 
-namespace Smarts.Core.Tests
+namespace Smarts.Core.Tests;
+
+public class ConsoleTests
 {
-    public class ConsoleTests
+    [SkippableFact]
+    public void SetForegroundAndReset()
     {
-        [Test]
-        public void SetForegroundAndReset()
+        Skip.If(Console.IsOutputRedirected);
+        var originalForeground = Console.ForegroundColor;
+        var originalBackground = Console.BackgroundColor;
+        Skip.If(originalBackground == originalForeground);
+        using (originalBackground.AsForeground())
         {
-            Assume.That(Console.IsOutputRedirected, Is.False);
-            var originalForeground = Console.ForegroundColor;
-            var originalBackground = Console.BackgroundColor;
-            Assume.That(originalBackground, Is.Not.EqualTo(originalForeground));
-            using (originalBackground.AsForeground())
-            {
-                Assert.That(Console.ForegroundColor, Is.EqualTo(originalBackground));
-                Assert.That(Console.BackgroundColor, Is.EqualTo(originalBackground));
-            }
-
-            Assert.That(Console.BackgroundColor, Is.EqualTo(originalBackground));
-            Assert.That(Console.ForegroundColor, Is.EqualTo(originalForeground));
+            Assert.Equal(originalBackground, Console.ForegroundColor);
+            Assert.Equal(originalBackground, Console.BackgroundColor);
         }
 
-        [Test]
-        public void SetBackgroundAndReset()
-        {
-            Assume.That(Console.IsOutputRedirected, Is.False);
-            var originalForeground = Console.ForegroundColor;
-            var originalBackground = Console.BackgroundColor;
-            Assume.That(originalBackground, Is.Not.EqualTo(originalForeground));
-            using (originalForeground.AsBackground())
-            {
-                Assert.That(Console.ForegroundColor, Is.EqualTo(originalForeground));
-                Assert.That(Console.BackgroundColor, Is.EqualTo(originalForeground));
-            }
+        Assert.Equal(originalForeground, Console.ForegroundColor);
+        Assert.Equal(originalBackground, Console.BackgroundColor);
+    }
 
-            Assert.That(Console.BackgroundColor, Is.EqualTo(originalBackground));
-            Assert.That(Console.ForegroundColor, Is.EqualTo(originalForeground));
+    [SkippableFact]
+    public void SetBackgroundAndReset()
+    {
+        Skip.If(Console.IsOutputRedirected);
+        var originalForeground = Console.ForegroundColor;
+        var originalBackground = Console.BackgroundColor;
+        Skip.If(originalBackground == originalForeground);
+        using (originalForeground.AsBackground())
+        {
+            Assert.Equal(originalForeground, Console.BackgroundColor);
+            Assert.Equal(originalForeground, Console.ForegroundColor);
         }
+
+        Assert.Equal(originalForeground, Console.ForegroundColor);
+        Assert.Equal(originalBackground, Console.BackgroundColor);
     }
 }

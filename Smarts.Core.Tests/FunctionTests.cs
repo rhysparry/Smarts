@@ -1,37 +1,35 @@
 ﻿using System.Linq;
-using NUnit.Framework;
 
-namespace Smarts.Core.Tests
+namespace Smarts.Core.Tests;
+
+public class FunctionTests
 {
-    public class FunctionTests
+    [Fact]
+    public void CallNoOp()
     {
-        [Test]
-        public void CallNoOp()
-        {
-            Functions.NoOp();
-        }
+        Functions.NoOp();
+    }
 
-        [Test]
-        public void IdentityOfAStruct()
-        {
-            const int num = 42;
-            var identity = Functions.Identity(num);
-            Assert.That(identity, Is.EqualTo(num));
-        }
+    [Fact]
+    public void IdentityOfAStruct()
+    {
+        const int num = 42;
+        var identity = Functions.Identity(num);
+        Assert.Equal(num, identity);
+    }
 
-        [Test]
-        public void IdentityOfAClass()
-        {
-            var obj = new object();
-            var identity = Functions.Identity(obj);
-            Assert.That(identity, Is.SameAs(obj));
-        }
+    [Fact]
+    public void IdentityOfAClass()
+    {
+        var obj = new object();
+        var identity = Functions.Identity(obj);
+        Assert.Same(obj, identity);
+    }
 
-        [Test]
-        public void IdentityUsageExample()
-        {
-            var fifteen = Enumerable.Range(1, 5).Select(Functions.Identity).Sum();
-            Assert.That(fifteen, Is.EqualTo(15));
-        }
+    [Fact]
+    public void IdentityUsageExample()
+    {
+        var fifteen = Enumerable.Range(1, 5).Select(Functions.Identity).Sum();
+        Assert.Equal(15, fifteen);
     }
 }
